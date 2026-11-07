@@ -1,0 +1,563 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Belajar IPAS Kelas 5 - Ekosistem</title>
+<style>
+:root {
+  --green:#16834a;
+  --dark:#14532d;
+  --light:#eaf8ed;
+  --yellow:#ffda65;
+  --white:#fff;
+}
+* {box-sizing:border-box}
+body {
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:#f3f8f2;
+  color:#24352a;
+  line-height:1.6;
+}
+header {
+  background:linear-gradient(120deg,#12683c,#38a66a);
+  color:white;
+  padding:30px 20px;
+  text-align:center;
+}
+header h1 {font-size:clamp(25px,4vw,42px);margin:8px}
+header p {font-size:18px}
+nav {
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:8px;
+  padding:12px;
+  background:white;
+  position:sticky;
+  top:0;
+  z-index:10;
+  box-shadow:0 2px 8px #0001;
+}
+button {
+  cursor:pointer;
+  border:0;
+  border-radius:12px;
+  padding:13px 19px;
+  font-size:17px;
+  font-weight:bold;
+  background:var(--green);
+  color:white;
+}
+button:hover {background:var(--dark)}
+nav button {font-size:15px;background:#e7f5e9;color:#155d35}
+nav button.active {background:var(--green);color:white}
+main {max-width:1050px;margin:auto;padding:20px}
+section {display:none}
+section.active {display:block}
+.card {
+  background:white;
+  border-radius:18px;
+  padding:23px;
+  margin:18px 0;
+  box-shadow:0 4px 14px #0000000c;
+}
+h2 {color:var(--dark);font-size:27px}
+h3 {color:#247c48}
+.hero {
+  text-align:center;
+  padding:35px 20px;
+  background:linear-gradient(135deg,#e0f6d9,#fff4bd);
+  border-radius:20px;
+}
+.hero .emoji {font-size:65px}
+.big {font-size:22px}
+.diagram {
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  align-items:center;
+  gap:12px;
+  margin:25px 0;
+}
+.organism {
+  background:#e9f8e9;
+  border:2px solid #a5d6ae;
+  padding:18px;
+  border-radius:15px;
+  min-width:105px;
+  text-align:center;
+  font-size:19px;
+}
+.arrow {font-size:28px;color:var(--green)}
+.grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+  gap:15px;
+}
+.info {
+  background:#f0f8ee;
+  padding:18px;
+  border-radius:14px;
+  text-align:center;
+}
+.info .emoji {font-size:42px}
+.answer {
+  display:block;
+  width:100%;
+  background:#eef7ef;
+  color:#174b2b;
+  text-align:left;
+  margin:10px 0;
+  border:2px solid #d7ead9;
+}
+.answer:hover {background:#d6f0d8}
+.feedback {font-weight:bold;margin:12px 0}
+input,textarea,select {
+  width:100%;
+  padding:14px;
+  font-size:17px;
+  border:2px solid #cde0d0;
+  border-radius:10px;
+  margin:8px 0 15px;
+}
+label {font-weight:bold}
+.progress {
+  height:13px;background:#ddd;border-radius:20px;overflow:hidden;
+}
+.progress div {
+  height:100%;width:0;background:#22a05a;transition:.3s;
+}
+footer {
+  text-align:center;padding:25px;background:#14532d;color:white;
+  margin-top:30px;
+}
+.video {
+  background:#173c2b;color:white;text-align:center;
+  border-radius:15px;padding:30px;
+}
+.video button {background:#ffca42;color:#273b23}
+.small {font-size:14px;color:#637468}
+.tts-grid {
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:8px;
+}
+.tts-grid input {text-align:center;text-transform:uppercase}
+@media(max-width:600px) {
+  nav {position:relative}
+  nav button {font-size:13px;padding:10px}
+  main {padding:10px}
+  .card {padding:17px}
+  .arrow {font-size:20px}
+  .organism {min-width:75px;padding:10px;font-size:16px}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div style="font-size:45px">🌳 🐦 🦋 🌾</div>
+  <h1>AYO BELAJAR IPAS!</h1>
+  <p>Rantai Makanan dan Jaring-Jaring Makanan dalam Ekosistem</p>
+  <strong>Kelas V Sekolah Dasar</strong>
+</header>
+
+<nav id="menu">
+  <button class="active" onclick="showPage('home',this)">🏠 Beranda</button>
+  <button onclick="showPage('materi',this)">📚 Materi</button>
+  <button onclick="showPage('video',this)">🎬 Video</button>
+  <button onclick="showPage('aktivitas',this)">🧩 Aktivitas</button>
+  <button onclick="showPage('tts',this)">🔠 TTS</button>
+  <button onclick="showPage('kuis',this)">📝 Kuis</button>
+  <button onclick="showPage('refleksi',this)">💡 Refleksi</button>
+</nav>
+
+<main>
+
+<!-- BERANDA -->
+<section id="home" class="active">
+  <div class="hero">
+    <div class="emoji">🌱 🐛 🐸 🐍 🦅</div>
+    <h2>Selamat Datang, Anak Hebat!</h2>
+    <p class="big">Mari belajar mengenal ekosistem dan hubungan makan dan dimakan antarmakhluk hidup.</p>
+    <label>Nama siswa:</label>
+    <input id="nama" placeholder="Tuliskan nama kamu">
+    <button onclick="mulai()">MULAI BELAJAR 🚀</button>
+  </div>
+  <div class="card">
+    <h2>🎯 Tujuan Pembelajaran</h2>
+    <p>Setelah mengikuti pembelajaran, siswa diharapkan mampu:</p>
+    <ol>
+      <li>Menjelaskan pengertian ekosistem.</li>
+      <li>Membedakan komponen biotik dan abiotik.</li>
+      <li>Menjelaskan produsen, konsumen, dan pengurai.</li>
+      <li>Mengidentifikasi rantai makanan.</li>
+      <li>Menjelaskan jaring-jaring makanan.</li>
+      <li>Menjelaskan pentingnya keseimbangan ekosistem.</li>
+    </ol>
+  </div>
+  <div class="card">
+    <h2>🗺️ Petunjuk Belajar</h2>
+    <p>Ikuti kegiatan berikut secara berurutan:</p>
+    <div class="grid">
+      <div class="info">📖<br><b>1. Pelajari materi</b></div>
+      <div class="info">🎬<br><b>2. Tonton video</b></div>
+      <div class="info">🧩<br><b>3. Kerjakan aktivitas</b></div>
+      <div class="info">📝<br><b>4. Ikuti kuis</b></div>
+    </div>
+  </div>
+</section>
+
+<!-- MATERI -->
+<section id="materi">
+  <div class="card">
+    <h2>📚 MATERI PEMBELAJARAN</h2>
+    <h3>1. Apa itu ekosistem?</h3>
+    <p>Ekosistem adalah hubungan timbal balik antara makhluk hidup dengan lingkungan tempat tinggalnya.</p>
+    <div class="grid">
+      <div class="info">
+        <div class="emoji">🌳 🐦 🐟</div>
+        <h3>Biotik</h3>
+        <p>Komponen berupa makhluk hidup, seperti manusia, hewan, dan tumbuhan.</p>
+      </div>
+      <div class="info">
+        <div class="emoji">☀️ 💧 🪨</div>
+        <h3>Abiotik</h3>
+        <p>Komponen tidak hidup, seperti air, tanah, udara, dan cahaya matahari.</p>
+      </div>
+    </div>
+
+    <h3>2. Produsen, Konsumen, dan Pengurai</h3>
+    <div class="grid">
+      <div class="info">
+        <div class="emoji">🌾</div>
+        <h3>Produsen</h3>
+        <p>Tumbuhan yang dapat membuat makanan sendiri.</p>
+      </div>
+      <div class="info">
+        <div class="emoji">🐭</div>
+        <h3>Konsumen</h3>
+        <p>Makhluk hidup yang memperoleh makanan dari organisme lain.</p>
+      </div>
+      <div class="info">
+        <div class="emoji">🍄</div>
+        <h3>Pengurai</h3>
+        <p>Organisme yang menguraikan sisa makhluk hidup.</p>
+      </div>
+    </div>
+
+    <h3>3. Rantai Makanan</h3>
+    <p>Rantai makanan merupakan proses makan dan dimakan antarmakhluk hidup dengan urutan tertentu.</p>
+    <div class="diagram">
+      <div class="organism">🌾<br>Padi</div>
+      <div class="arrow">→</div>
+      <div class="organism">🐭<br>Tikus</div>
+      <div class="arrow">→</div>
+      <div class="organism">🐍<br>Ular</div>
+      <div class="arrow">→</div>
+      <div class="organism">🦅<br>Elang</div>
+    </div>
+    <p><b>Penjelasan:</b> Tikus memakan padi, ular memakan tikus, dan elang memakan ular. Sisa organisme kemudian dapat diuraikan oleh pengurai.</p>
+
+    <h3>4. Jaring-Jaring Makanan</h3>
+    <p>Jaring-jaring makanan adalah gabungan beberapa rantai makanan yang saling berhubungan dalam suatu ekosistem.</p>
+    <div class="diagram">
+      <div class="organism">🌾 Padi</div>
+      <div class="arrow">→</div>
+      <div class="organism">🐭 Tikus</div>
+      <div class="arrow">→</div>
+      <div class="organism">🦅 Elang</div>
+    </div>
+    <div class="diagram">
+      <div class="organism">🌾 Padi</div>
+      <div class="arrow">→</div>
+      <div class="organism">🦗 Belalang</div>
+      <div class="arrow">→</div>
+      <div class="organism">🐸 Katak</div>
+      <div class="arrow">→</div>
+      <div class="organism">🐍 Ular</div>
+    </div>
+    <p>Dalam ekosistem, satu jenis makhluk hidup dapat memiliki lebih dari satu hubungan makanan.</p>
+
+    <h3>5. Keseimbangan Ekosistem</h3>
+    <p>Setiap makhluk hidup memiliki peran. Jika salah satu populasi berkurang atau bertambah secara berlebihan, keseimbangan ekosistem dapat terganggu.</p>
+    <div class="info">
+      <div class="emoji">🌏</div>
+      <b>Jagalah lingkungan dan lindungi makhluk hidup!</b>
+    </div>
+  </div>
+</section>
+
+<!-- VIDEO -->
+<section id="video">
+  <div class="card">
+    <h2>🎬 VIDEO PEMBELAJARAN</h2>
+    <p>Perhatikan penjelasan berikut untuk memahami rantai makanan.</p>
+    <div class="video">
+      <div style="font-size:55px">▶️ 🌱 🐛 🐸 🐍</div>
+      <h3 style="color:white">Video Rantai Makanan</h3>
+      <p>Video pembelajaran tentang hubungan makan dan dimakan.</p>
+      <button onclick="window.open('https://www.youtube.com/results?search_query=video+pembelajaran+rantai+makanan+kelas+5+SD','_blank')">CARI VIDEO PEMBELAJARAN ▶</button>
+    </div>
+    <p class="small">Tombol akan membuka hasil pencarian video pembelajaran di YouTube. Pilih video yang sesuai dengan materi.</p>
+    <h3>Pertanyaan setelah menonton</h3>
+    <p>1. Apa yang dimaksud dengan rantai makanan?</p>
+    <p>2. Siapa yang disebut produsen?</p>
+    <p>3. Apa yang terjadi jika jumlah ular berkurang?</p>
+    <textarea id="jawabVideo" rows="4" placeholder="Tuliskan jawabanmu di sini..."></textarea>
+  </div>
+</section>
+
+<!-- AKTIVITAS -->
+<section id="aktivitas">
+  <div class="card">
+    <h2>🧩 AKTIVITAS MENYUSUN RANTAI MAKANAN</h2>
+    <p>Urutkan organisme berikut berdasarkan rantai makanan yang benar.</p>
+    <p><b>Petunjuk:</b> Klik pilihan secara berurutan mulai dari produsen.</p>
+    <div class="grid" id="pilihanOrganisme">
+      <button onclick="pilihOrganisme('Ular')">🐍 Ular</button>
+      <button onclick="pilihOrganisme('Padi')">🌾 Padi</button>
+      <button onclick="pilihOrganisme('Elang')">🦅 Elang</button>
+      <button onclick="pilihOrganisme('Tikus')">🐭 Tikus</button>
+    </div>
+    <h3>Urutan pilihanmu:</h3>
+    <div id="hasilSusun" class="diagram">Belum ada pilihan.</div>
+    <p id="pesanSusun" class="feedback"></p>
+    <button onclick="cekSusun()">PERIKSA JAWABAN</button>
+    <button onclick="resetSusun()" style="background:#777">ULANGI</button>
+  </div>
+  <div class="card">
+    <h2>💬 Pertanyaan Diskusi</h2>
+    <p>Diskusikan bersama temanmu:</p>
+    <ol>
+      <li>Mengapa tumbuhan disebut produsen?</li>
+      <li>Mengapa ular membutuhkan tikus sebagai makanan?</li>
+      <li>Apa yang terjadi jika semua tumbuhan di sawah mati?</li>
+      <li>Bagaimana cara menjaga keseimbangan ekosistem?</li>
+    </ol>
+  </div>
+</section>
+
+<!-- TTS -->
+<section id="tts">
+  <div class="card">
+    <h2>🔠 TEKA-TEKI SILANG SEDERHANA</h2>
+    <p>Isi kotak dengan huruf jawaban yang benar.</p>
+    <div id="ttsQuestions"></div>
+    <button onclick="cekTTS()">PERIKSA TTS</button>
+    <button onclick="resetTTS()" style="background:#777">ULANGI</button>
+    <p id="hasilTTS" class="feedback"></p>
+  </div>
+</section>
+
+<!-- KUIS -->
+<section id="kuis">
+  <div class="card">
+    <h2>📝 KUIS IPAS KELAS 5</h2>
+    <p>Jawablah pertanyaan berikut dengan teliti.</p>
+    <div class="progress"><div id="bar"></div></div>
+    <p id="nomor"></p>
+    <h3 id="pertanyaan"></h3>
+    <div id="jawaban"></div>
+    <p id="feedback" class="feedback"></p>
+    <button id="lanjut" onclick="nextQuestion()" style="display:none">SOAL BERIKUTNYA →</button>
+    <div id="hasilKuis"></div>
+    <button id="ulangKuis" onclick="startQuiz()" style="display:none">ULANGI KUIS</button>
+  </div>
+</section>
+
+<!-- REFLEKSI -->
+<section id="refleksi">
+  <div class="card">
+    <h2>💡 REFLEKSI PEMBELAJARAN</h2>
+    <p>Setelah mengikuti pembelajaran, jawablah pertanyaan berikut.</p>
+    <label>1. Apa hal baru yang kamu pelajari?</label>
+    <textarea id="r1" placeholder="Tuliskan jawabanmu..."></textarea>
+    <label>2. Materi apa yang paling kamu sukai?</label>
+    <textarea id="r2" placeholder="Tuliskan jawabanmu..."></textarea>
+    <label>3. Mengapa kita harus menjaga ekosistem?</label>
+    <textarea id="r3" placeholder="Tuliskan jawabanmu..."></textarea>
+    <button onclick="simpanRefleksi()">SIMPAN REFLEKSI</button>
+    <p id="pesanRefleksi" class="feedback"></p>
+  </div>
+  <div class="card">
+    <h2>🏆 HASIL BELAJAR</h2>
+    <p>Nama: <b id="namaHasil">Belum diisi</b></p>
+    <p>Nilai kuis: <b id="nilaiAkhir">Belum mengikuti kuis</b></p>
+    <button onclick="window.print()">CETAK HASIL</button>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <h3 style="color:white">🌿 BELAJAR IPAS MENJADI MENYENANGKAN 🌿</h3>
+  <p>Media Pembelajaran Interaktif IPAS Kelas V SD</p>
+  <p>Materi Ekosistem, Rantai Makanan, dan Jaring-Jaring Makanan</p>
+</footer>
+
+<script>
+function showPage(id,btn) {
+  document.querySelectorAll('main section').forEach(s=>s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  window.scrollTo(0,0);
+}
+function mulai() {
+  let n=document.getElementById('nama').value.trim();
+  if(!n){alert('Silakan tuliskan nama terlebih dahulu.');return;}
+  document.getElementById('namaHasil').textContent=n;
+  alert('Selamat belajar, '+n+'! 🌟');
+  showPage('materi',document.querySelectorAll('nav button')[1]);
+}
+
+// Aktivitas menyusun rantai makanan
+let urutan=[];
+const benar=['Padi','Tikus','Ular','Elang'];
+const emoji={Padi:'🌾',Tikus:'🐭',Ular:'🐍',Elang:'🦅'};
+function pilihOrganisme(x) {
+  if(urutan.length>=4 || urutan.includes(x)) return;
+  urutan.push(x);
+  renderSusun();
+}
+function renderSusun() {
+  document.getElementById('hasilSusun').innerHTML=urutan.map(x=>
+    `<div class="organism">${emoji[x]}<br>${x}</div>`
+  ).join('<span class="arrow">→</span>') || 'Belum ada pilihan.';
+}
+function cekSusun() {
+  let ok=urutan.join(',')===benar.join(',');
+  document.getElementById('pesanSusun').textContent=
+    ok?'🎉 Hebat! Urutan rantai makanan benar!':'Belum tepat. Coba urutkan mulai dari tumbuhan.';
+  document.getElementById('pesanSusun').style.color=ok?'green':'red';
+}
+function resetSusun() {
+  urutan=[];
+  renderSusun();
+  document.getElementById('pesanSusun').textContent='';
+}
+
+// TTS
+const tts=[
+  {q:'Tumbuhan yang membuat makanan sendiri disebut ...',a:'PRODUSEN'},
+  {q:'Hewan pemakan tumbuhan dan hewan lain disebut ...',a:'KONSUMEN'},
+  {q:'Organisme yang menguraikan sisa makhluk hidup disebut ...',a:'PENGURAI'},
+  {q:'Hubungan makan dan dimakan disebut ...',a:'RANTAI'},
+];
+function renderTTS() {
+  document.getElementById('ttsQuestions').innerHTML=tts.map((x,i)=>`
+    <div class="card">
+      <b>${i+1}. ${x.q}</b>
+      <input id="tts${i}" maxlength="${x.a.length}" placeholder="${x.a.length} huruf">
+    </div>`).join('');
+}
+function cekTTS() {
+  let score=0;
+  tts.forEach((x,i)=>{
+    let input=document.getElementById('tts'+i);
+    if(input.value.trim().toUpperCase()===x.a) {
+      score++;
+      input.style.borderColor='green';
+    } else input.style.borderColor='red';
+  });
+  document.getElementById('hasilTTS').textContent=
+    `Jawaban benar: ${score} dari ${tts.length}. Nilai: ${score*25}`;
+}
+function resetTTS() {
+  tts.forEach((x,i)=>{
+    let el=document.getElementById('tts'+i);
+    el.value='';el.style.borderColor='#cde0d0';
+  });
+  document.getElementById('hasilTTS').textContent='';
+}
+renderTTS();
+
+// Kuis
+const questions=[
+ {q:'Apa yang dimaksud dengan ekosistem?',a:['Hubungan makhluk hidup dengan lingkungannya','Tempat bermain hewan','Kumpulan benda mati','Tempat tumbuhan saja'],c:0,e:'Ekosistem merupakan hubungan timbal balik antara makhluk hidup dan lingkungannya.'},
+ {q:'Manakah yang termasuk komponen abiotik?',a:['Pohon','Burung','Air','Rumput'],c:2,e:'Air merupakan komponen abiotik atau benda tidak hidup.'},
+ {q:'Tumbuhan hijau disebut ...',a:['Konsumen','Produsen','Pengurai','Predator'],c:1,e:'Tumbuhan hijau dapat membuat makanan sendiri melalui fotosintesis.'},
+ {q:'Dalam rantai makanan, tikus memakan ...',a:['Elang','Ular','Padi','Katak'],c:2,e:'Tikus dapat memakan padi sehingga tikus berperan sebagai konsumen.'},
+ {q:'Hewan yang dapat memakan ular pada contoh rantai makanan adalah ...',a:['Elang','Tikus','Padi','Belalang'],c:0,e:'Elang merupakan pemangsa ular pada contoh rantai makanan tersebut.'},
+ {q:'Apa tugas pengurai?',a:['Membuat cahaya','Menguraikan sisa makhluk hidup','Memakan matahari','Menghasilkan air'],c:1,e:'Pengurai membantu menguraikan sisa organisme.'},
+ {q:'Gabungan beberapa rantai makanan disebut ...',a:['Ekosistem','Habitat','Jaring-jaring makanan','Populasi'],c:2,e:'Jaring-jaring makanan merupakan beberapa rantai makanan yang saling berhubungan.'},
+ {q:'Apa yang dapat terjadi jika jumlah ular berkurang?',a:['Tikus dapat bertambah','Padi berubah menjadi hewan','Semua air hilang','Elang menjadi tumbuhan'],c:0,e:'Berkurangnya pemangsa dapat menyebabkan populasi mangsanya meningkat.'},
+ {q:'Manakah contoh komponen biotik?',a:['Tanah','Air','Cahaya','Pohon'],c:3,e:'Pohon merupakan makhluk hidup sehingga termasuk komponen biotik.'},
+ {q:'Bagaimana cara menjaga keseimbangan ekosistem?',a:['Menebang semua pohon','Membuang sampah ke sungai','Melindungi lingkungan dan makhluk hidup','Memburu semua hewan'],c:2,e:'Melindungi lingkungan membantu mempertahankan keseimbangan ekosistem.'}
+];
+let qIndex=0,score=0,answered=false;
+function startQuiz() {
+  qIndex=0;score=0;answered=false;
+  document.getElementById('hasilKuis').innerHTML='';
+  document.getElementById('ulangKuis').style.display='none';
+  document.getElementById('lanjut').style.display='none';
+  renderQuestion();
+}
+function renderQuestion() {
+  let q=questions[qIndex];
+  document.getElementById('bar').style.width=(qIndex/questions.length*100)+'%';
+  document.getElementById('nomor').textContent=`Pertanyaan ${qIndex+1} dari ${questions.length}`;
+  document.getElementById('pertanyaan').textContent=q.q;
+  document.getElementById('feedback').textContent='';
+  document.getElementById('jawaban').innerHTML=q.a.map((a,i)=>
+    `<button class="answer" onclick="checkAnswer(${i})">${String.fromCharCode(65+i)}. ${a}</button>`
+  ).join('');
+  answered=false;
+}
+function checkAnswer(i) {
+  if(answered)return;
+  answered=true;
+  let q=questions[qIndex];
+  let correct=i===q.c;
+  if(correct)score++;
+  document.getElementById('feedback').textContent=
+    (correct?'✅ Jawaban benar! ':'❌ Jawaban belum tepat. ')+q.e;
+  document.getElementById('feedback').style.color=correct?'green':'#b33';
+  document.querySelectorAll('.answer').forEach((b,j)=>{
+    b.disabled=true;
+    if(j===q.c)b.style.background='#b9e9bf';
+    else if(j===i)b.style.background='#ffd4d4';
+  });
+  document.getElementById('lanjut').style.display='inline-block';
+  document.getElementById('lanjut').textContent=
+    qIndex===questions.length-1?'LIHAT NILAI':'SOAL BERIKUTNYA →';
+}
+function nextQuestion() {
+  qIndex++;
+  if(qIndex<questions.length)renderQuestion();
+  else finishQuiz();
+  document.getElementById('lanjut').style.display='none';
+}
+function finishQuiz() {
+  let nilai=score*10;
+  document.getElementById('bar').style.width='100%';
+  document.getElementById('nomor').textContent='Kuis selesai!';
+  document.getElementById('pertanyaan').textContent='🎉 Selamat telah menyelesaikan kuis!';
+  document.getElementById('jawaban').innerHTML='';
+  document.getElementById('feedback').textContent='';
+  document.getElementById('hasilKuis').innerHTML=
+    `<div class="hero"><h2>Nilai Kamu</h2>
+    <div style="font-size:65px;font-weight:bold;color:#16834a">${nilai}</div>
+    <p>Jawaban benar: ${score} dari ${questions.length}</p>
+    <h3>${nilai>=70?'Hebat! Kamu sudah memahami materi.':'Tetap semangat! Pelajari kembali materinya.'}</h3></div>`;
+  document.getElementById('nilaiAkhir').textContent=nilai;
+  document.getElementById('ulangKuis').style.display='inline-block';
+}
+startQuiz();
+
+// Refleksi
+function simpanRefleksi() {
+  let fields=['r1','r2','r3'];
+  if(fields.some(id=>!document.getElementById(id).value.trim())) {
+    document.getElementById('pesanRefleksi').textContent='Lengkapi semua jawaban refleksi terlebih dahulu.';
+    return;
+  }
+  document.getElementById('pesanRefleksi').textContent='Terima kasih! Refleksi pembelajaran berhasil diisi. 🌟';
+}
+</script>
+</body>
+</html>
